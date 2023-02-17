@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+{% extends "base.html"%}
+<head>
+    {% block css%}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+   
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/news.css')}}">
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> -->
+    <title>Xəbərlər</title>
+    {% endblock %}
+
+    </head>
+<body>
+    
+
+    {% block content %}
+    <div class="container">
+        <h3>Xəbərlər</h3>
+        {% for i in news %}
+        <div class="card flex-row flex-wrap w100">
+            <div class="card-header border-0">
+                <img src="{{i.photoImage}}" alt="">
+            </div>
+    
+            <div class="card-block px-2">
+                <div class="top">
+                    <div class="date">{{i.share_time}}</div>
+                </div>
+                <!-- Burda hrefi de dinamik getirmelisen:  -->
+                <a href="/news/news_details" style="text-decoration: none;">
+                    <h4 class="card-title">{{i.title}}</h4>
+                </a>
+                <p class="card-text">Hərrac zamanı Bankın emissiya etdiyi istiqrazlara investorlar tərəfindən göstərilən
+                    böyük maraq müşahidə olunub</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+
+  
+
+</body>
+</html>
